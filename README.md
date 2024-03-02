@@ -1,2 +1,2 @@
 
-<img width="840" alt="截圖 2024-03-02 下午12 06 47" src="https://github.com/HoaChengChang/sell_tree/assets/93926929/011ae952-9c19-440b-b9c4-b71c7ed3e769">
+<img width="856" alt="截圖 2024-03-02 下午12 08 55" src="https://github.com/HoaChengChang/sell_tree/assets/93926929/e9db5c29-d0a6-4b60-828b-4f6a5a5f34ab">
