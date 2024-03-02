@@ -1,0 +1,496 @@
+{% extends "myApp/base.html" %}
+{% load static %}
+{% block mainBody %}
+<div>
+  <div class="flexbox" data-aos="fade-up-right">
+    <!-- <div><img src="static/images/newspaper.png" style="width: 10px;height: auto;"></div> -->
+    <div class="pc-g-2"><img src="{% static 'images/speaker.png' %}" alt="speaker" class="d-block" style="width:100%;aspect-ratio:1 1;"></div>
+    <div class="pc-g-3">
+      <h3 style="color: #FF0033;text-align:center">最新資訊:</h3>
+    </div>
+    <div class="pc-g-7" style="padding: 0px;">
+        <ul class="flexbox" style="margin-top: 0px;">
+        {% for post in all_posts %}
+        <li class="news_font" style="margin: 10px;"><a href="/news/{{post.id}}/">{{post.title}}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="flexbox pc" >
+    <div class="col-5" data-aos="fade-up-left" style="margin-right: 40px;" >
+      <h2>介紹</h2>
+      <p class="text_center">樹葡萄，又被稱為巴西葡萄或柚子葡萄，是一種獨特的葡萄品種，與傳統藤葡萄不同，它們生長在小型樹木上而非藤蔓上。這些小型樹木通常不高於2至3米，適合在有限空間種植，管理和收穫更加方便。樹葡萄的果實通常呈小而圓的形狀，外皮呈鮮豔的紅色或紫色，光滑且多汁。口感與傳統葡萄相似，但更容易食用，因為不需要剝皮或去除種子。有多個不同的樹葡萄品種，每一種都可能擁有獨特的風味和特點，如香氣、酸度和甜度。樹葡萄可生食，也可用於果醬、果汁、葡萄酒和各種甜點的製作。它們富含維生素C、抗氧化劑和纖維，是健康的零食選擇。在溫暖氣候下種植，樹葡萄因其獨特的生長方式和口感而備受喜愛，為園藝愛好者提供了新的可能性。</p>
+    </div>
+    <div id="demo0" class="carousel slide col-4" data-bs-ride="carousel" data-aos="fade-up-right">
+      <div class="carousel-indicators">
+      {% for pic in all_pic %}
+        {% if pic.section == 1 %}
+          {% if pic.ordering == 0 %}
+            <button type="button" data-bs-target="#demo0" data-bs-slide-to="0" class="active"></button>
+          {% else %}
+            <button type="button" data-bs-target="#demo0" data-bs-slide-to="{{pic.ordering}}"></button>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      </div>
+      <div class="carousel-inner">
+        {% for pic in all_pic %}
+          {% if pic.section == 1%}
+            {% if pic.ordering == 0 %}
+            <div class="carousel-item active">
+              <img  src="{{pic.image.url}}" alt="tree" class="d-block" style="width:100%">
+              <div class="carousel-caption">
+                <h3>#{{pic.ordering|add:1}}</h3>
+                <p></p>
+              </div>
+            </div>
+            {% else %}
+            <div class="carousel-item">
+              <img  src="{{pic.image.url}}" alt="tree" class="d-block" style="width:100%">
+              <div class="carousel-caption">
+                <h3>#{{pic.ordering|add:1 }}</h3>
+                <p></p>
+              </div>
+            </div>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      
+      <!-- Left and right controls/icons -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#demo0" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#demo0" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+
+    </div>
+  </div>
+  <div class="mobile" data-aos="fade-up-left">
+    <div class="flexbox">
+      <div class="card" style="width: 90%">
+        <div id="demo" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up-right">
+          <div class="carousel-indicators">
+          {% for pic in all_pic %}
+            {% if pic.section == 1 %}
+              {% if pic.ordering == 0 %}
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+              {% else %}
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="{{pic.ordering}}"></button>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          </div>
+          <div class="carousel-inner">
+            {% for pic in all_pic %}
+              {% if pic.section == 1%}
+                {% if pic.ordering == 0 %}
+                <div class="carousel-item active">
+                  <img loading="lazy" src="{{pic.image.url}}" alt="tree" class="d-block" style="width:100%">
+                  <div class="carousel-caption">
+                    <h3>#{{pic.ordering|add:1}}</h3>
+                    <p></p>
+                  </div>
+                </div>
+                {% else %}
+                <div class="carousel-item">
+                  <img loading="lazy" src="{{pic.image.url}}" alt="tree" class="d-block" style="width:100%">
+                  <div class="carousel-caption">
+                    <h3>#{{pic.ordering|add:1 }}</h3>
+                    <p></p>
+                  </div>
+                </div>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+          
+          <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+        <div class="container-fluid mt-3" data-aos="fade-up-left">
+          <h2>介紹</h2>
+          <p class="text_center">樹葡萄，又被稱為巴西葡萄或柚子葡萄，是一種獨特的葡萄品種，與傳統藤葡萄不同，它們生長在小型樹木上而非藤蔓上。這些小型樹木通常不高於2至3米，適合在有限空間種植，管理和收穫更加方便。樹葡萄的果實通常呈小而圓的形狀，外皮呈鮮豔的紅色或紫色，光滑且多汁。口感與傳統葡萄相似，但更容易食用，因為不需要剝皮或去除種子。有多個不同的樹葡萄品種，每一種都可能擁有獨特的風味和特點，如香氣、酸度和甜度。樹葡萄可生食，也可用於果醬、果汁、葡萄酒和各種甜點的製作。它們富含維生素C、抗氧化劑和纖維，是健康的零食選擇。在溫暖氣候下種植，樹葡萄因其獨特的生長方式和口感而備受喜愛，為園藝愛好者提供了新的可能性。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <hr>
+  <div class="mobile">
+    <div class="flexbox">
+      <div class="card" style="width: 90%;">
+        {% for pic in all_pic %}
+          {% if pic.section == 2 %}
+          <section ><img loading="lazy" src="{{pic.image.url}}" alt="myPhoto" width="400" height="400"> </img></section>
+          {% endif %}
+        {% endfor %}
+        <!-- <div>
+		<section ><img src="{{pic.image.url}}" alt="myPhoto" width="400" height="400"> </img></section>
+        </div> -->
+        <div>
+          <h2 style="text-align: center;">關於我</h2>
+          <section class="text_center">
+		  <p>您好，我是一位擁有多年農業經驗的農夫，專門種植各種優質的樹葡萄。我的田地位於嘉義大埔美，這個地區以其肥沃的土壤和溫暖的氣候，非常適合樹葡萄的種植。我們以注重品質和環境可持續性為原則，友善種植，不使用有害農藥或化學肥料，以確保我們的樹葡萄新鮮、健康且美味。我們致力於提供客戶最優質的樹葡萄，並始終關注客戶的需求和滿意度。如果您尋找新鮮、美味的樹葡萄，我們誠摯歡迎您來參觀我們的田地或與我們聯繫，我們將竭誠為您提供高品質的產品。謝謝您的關注，期待能為您提供最好的樹葡萄。另亦有種植羅漢松、真柏、桂花，歡迎選購。</p>
+	    <p style="text-align: center;"><a href="mailto:selltreeandseed@gmail.com" target="_blank">聯繫我們</a></p>
+          </section>
+        </div>
+	<iframe  src="https://maps.google.com/?q=23.605287, 120.517127&output=svembed" width="100%" height="350px"></iframe>
+      </div>
+      <!--
+      <div style="width: 90%;">
+        <iframe  src="https://maps.google.com/?q=23.605287, 120.517127&output=svembed" width="100%" height="350px"></iframe>
+      </div>-->
+    </div>
+  </div>  
+  <div class="flexbox pc">
+    <div class="col-5" data-aos="fade-up-life" style="margin-right: 50px;">
+      {% for pic in all_pic %}
+        {% if pic.section == 2 %}
+	<section ><img loading="lazy" src="{{pic.image.url}}" alt="myPhoto" width="400" height="400"> </img></section>
+        {% endif %}
+      {% endfor %}
+      <!-- <section ><img src="{% static 'images/life/people/1.jpg' %}" alt="myPhoto"></img></section> {{pic.image.url}}-->
+    </div>
+    <div class="col-4" data-aos="fade-up-right">
+      <h2 style="text-align: center;">關於我</h2>
+      <section class="text_center">
+        <p>您好，我是一位擁有多年農業經驗的農夫，專門種植各種優質的樹葡萄。我的田地位於嘉義大埔美，這個地區以其肥沃的土壤和溫暖的氣候，非常適合樹葡萄的種植。</p>
+        <p>我們以注重品質和環境可持續性為原則，友善種植，不使用有害農藥或化學肥料，以確保我們的樹葡萄新鮮、健康且美味。我們致力於提供客戶最優質的樹葡萄，並始終關注客戶的需求和滿意度。</p>
+        <p>如果您尋找新鮮、美味的樹葡萄，我們誠摯歡迎您來參觀我們的田地或與我們聯繫，我們將竭誠為您提供高品質的產品。謝謝您的關注，期待能為您提供最好的樹葡萄。另亦有種植羅漢松、真柏、桂花，歡迎選購。</p>
+        <p style="text-align: center;"><a href="mailto:selltreeandseed@gmail.com" target="_blank">聯繫我們</a></p>
+      </section>
+    </div>
+  </div>
+  <div class="flexbox pc">
+    <div style="width: 78%;">
+      <iframe src="https://maps.google.com/?q=23.605287, 120.517127&output=svembed" width="100%" height="500px"></iframe>
+    </div>
+  </div>
+  <hr>
+  <div id="life">
+    <h2 style="text-align: center;">種植歷程</h2>
+    <div class="flexbox">
+      <div class="life_history" >
+        <h3 style="text-align: center;">初期</h3>
+	<div id="demo1" class="carousel slide" > 
+
+          <!-- Indicators/dots -->
+          <div class="carousel-indicators" style="position:absolute" >
+            {% for pic in all_pic %}
+              {% if pic.section == 3 %}
+                {% if pic.ordering == 0 %}
+                  <button type="button" data-bs-target="#demo1" data-bs-slide-to="0" class="active"></button>
+                {% else %}
+                  <button type="button" data-bs-target="#demo1" data-bs-slide-to="{{pic.ordering}}"></button>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+          
+          <!-- The slideshow/carousel -->
+          <div class="carousel-inner">
+            {% for pic in all_pic %}
+              {% if pic.section == 3%}
+                {% if pic.ordering == 0 %}
+                <div class="carousel-item active">
+                  <img loading="lazy" src="{{pic.image.url}}" alt="tree" class="d-block" style="width:100%">
+                  <div class="carousel-caption">
+                    <h3>#{{pic.ordering|add:1}}</h3>
+                    <p>{{pic.introd}}</p>
+                  </div>
+                </div>
+                {% else %}
+                <div class="carousel-item">
+                  <img loading="lazy" src="{{pic.image.url}}" alt="tree" class="d-block" style="width:100%">
+                  <div class="carousel-caption">
+                    <h3>#{{pic.ordering|add:1 }}</h3>
+                    <p>{{pic.introd}}</p>
+                  </div>
+                </div>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+          <!-- Left and right controls/icons -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#demo1" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#demo1" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="life_history">
+        <h3 style="text-align:center">中後期</h3>
+        <div id="demo2" class="carousel slide" >
+  
+          <!-- Indicators/dots -->
+          <div class="carousel-indicators">
+            {% for pic in all_pic %}
+              {% if pic.section == 4 %}
+                {% if pic.ordering == 0 %}
+                  <button type="button" data-bs-target="#demo2" data-bs-slide-to="0" class="active"></button>
+                {% else %}
+                  <button type="button" data-bs-target="#demo2" data-bs-slide-to="{{pic.ordering}}"></button>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+          
+          <!-- The slideshow/carousel -->
+          <div class="carousel-inner">
+            {% for pic in all_pic %}
+            {% if pic.section == 4%}
+              {% if pic.ordering == 0 %}
+              <div class="carousel-item active">
+                <img loading="lazy" src="{{pic.image.url}}" alt="tree" class="d-block" style="width:100%">
+                <div class="carousel-caption">
+                  <h3>#{{pic.ordering|add:1}}</h3>
+                  <p>{{pic.introd}}</p>
+                </div>
+              </div>
+              {% else %}
+              <div class="carousel-item">
+                <img loading="lazy" src="{{pic.image.url}}" alt="tree" class="d-block" style="width:100%">
+                <div class="carousel-caption">
+                  <h3>#{{pic.ordering|add:1 }}</h3>
+                  <p>{{pic.introd}}</p>
+                </div>
+              </div>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          </div>
+          <!-- Left and right controls/icons -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#demo2" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#demo2" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+   
+    <hr>
+    <h2 style="text-align: center;">田園生活</h2>
+    <div class="flexbox">
+      <div class="life_pic_1">
+        <div id="demo3" class="carousel slide" >
+
+          <!-- Indicators/dots -->
+          <div class="carousel-indicators">
+            {% for pic in all_pic %}
+              {% if pic.section == 5 %}
+                {% if pic.ordering == 0 %}
+                  <button type="button" data-bs-target="#demo3" data-bs-slide-to="0" class="active"></button>
+                {% else %}
+                  <button type="button" data-bs-target="#demo3" data-bs-slide-to="{{pic.ordering}}"></button>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="carousel-inner">
+            {% for pic in all_pic %}
+            {% if pic.section == 5%}
+              {% if pic.ordering == 0 %}
+              <div class="carousel-item active">
+                <img loading="lazy" src="{{pic.image.url}}" alt="tree" class="d-block" style="width:100%">
+                <div class="carousel-caption">
+                  <h3>#{{pic.ordering|add:1}}</h3>
+                  <p>{{pic.introd}}</p>
+                </div>
+              </div>
+              {% else %}
+              <div class="carousel-item">
+                <img loading="lazy" src="{{pic.image.url}}" alt="tree" class="d-block" style="width:100%">
+                <div class="carousel-caption">
+                  <h3>#{{pic.ordering|add:1 }}</h3>
+                  <p>{{pic.introd}}</p>
+                </div>
+              </div>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          </div>
+          <!-- Left and right controls/icons -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#demo3" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#demo3" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+      <div class="life_pic_2" >
+        <div>
+          <div id="demo4" class="carousel slide" >
+
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+              {% for pic in all_pic %}
+                {% if pic.section == 6 %}
+                  {% if pic.ordering == 0 %}
+                    <button type="button" data-bs-target="#demo4" data-bs-slide-to="0" class="active"></button>
+                  {% else %}
+                    <button type="button" data-bs-target="#demo4" data-bs-slide-to="{{pic.ordering}}"></button>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div class="carousel-inner">
+              {% for pic in all_pic %}
+              {% if pic.section == 6%}
+                {% if pic.ordering == 0 %}
+                <div class="carousel-item active">
+                  <img loading="lazy" src="{{pic.image.url}}" alt="tree" class="d-block" style="width:100%">
+                  <div class="carousel-caption">
+                    <h3>#{{pic.ordering|add:1}}</h3>
+                    <p>{{pic.introd}}</p>
+                  </div>
+                </div>
+                {% else %}
+                <div class="carousel-item">
+                  <img loading="lazy" src="{{pic.image.url}}" alt="tree" class="d-block" style="width:100%">
+                  <div class="carousel-caption">
+                    <h3>#{{pic.ordering|add:1 }}</h3>
+                    <p>{{pic.introd}}</p>
+                  </div>
+                </div>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            </div>
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo4" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo4" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+        </div>
+        <div>
+          <div id="demo5" class="carousel slide" >
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+              {% for pic in all_pic %}
+                {% if pic.section == 7 %}
+                  {% if pic.ordering == 0 %}
+                    <button type="button" data-bs-target="#demo4" data-bs-slide-to="0" class="active"></button>
+                  {% else %}
+                    <button type="button" data-bs-target="#demo4" data-bs-slide-to="{{pic.ordering}}"></button>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div class="carousel-inner">
+              {% for pic in all_pic %}
+              {% if pic.section == 7%}
+                {% if pic.ordering == 0 %}
+                <div class="carousel-item active">
+                  <img loading="lazy" src="{{pic.image.url}}" alt="tree" class="d-block" style="width:100%">
+                  <div class="carousel-caption">
+                    <h3>#{{pic.ordering|add:1}}</h3>
+                    <p>{{pic.introd}}</p>
+                  </div>
+                </div>
+                {% else %}
+                <div class="carousel-item">
+                  <img loading="lazy" src="{{pic.image.url}}" alt="tree" class="d-block" style="width:100%">
+                  <div class="carousel-caption">
+                    <h3>#{{pic.ordering|add:1 }}</h3>
+                    <p>{{pic.introd}}</p>
+                  </div>
+                </div>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            </div>
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo5" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo5" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="life_pic_3">
+        <div id="demo6" class="carousel slide" >
+
+          <!-- Indicators/dots -->
+          <div class="carousel-indicators">
+            {% for pic in all_pic %}
+              {% if pic.section == 8 %}
+                {% if pic.ordering == 0 %}
+                  <button type="button" data-bs-target="#demo3" data-bs-slide-to="0" class="active"></button>
+                {% else %}
+                  <button type="button" data-bs-target="#demo3" data-bs-slide-to="{{pic.ordering}}"></button>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="carousel-inner">
+            {% for pic in all_pic %}
+            {% if pic.section == 8%}
+              {% if pic.ordering == 0 %}
+              <div class="carousel-item active">
+                <img loading="lazy" src="{{pic.image.url}}" alt="tree" class="d-block" style="width:100%">
+                <div class="carousel-caption">
+                  <h3>#{{pic.ordering|add:1}}</h3>
+                  <p>{{pic.introd}}</p>
+                </div>
+              </div>
+              {% else %}
+              <div class="carousel-item">
+                <img loading="lazy" src="{{pic.image.url}}" alt="tree" class="d-block" style="width:100%">
+                <div class="carousel-caption">
+                  <h3>#{{pic.ordering|add:1 }}</h3>
+                  <p>{{pic.introd}}</p>
+                </div>
+              </div>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          </div>
+          <!-- Left and right controls/icons -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#demo6" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#demo6" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <h3 style="text-align: center;" >影片</h3>
+    <div class="flexbox">
+      <video preload="none" width=90% height="400px" controls>
+	      <source src="{% static 'video/20230429.mp4'%}" type="video/mp4">
+        <source src="movie.ogg" type="video/ogg">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="flexbox">
+      <video preload="none" width=90% height="400px" controls>
+	      <source src="{% static 'video/flog_video.mp4' %}" type="video/mp4">
+        <source src="movie.ogg" type="video/ogg">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+{% endblock mainBody %}

@@ -1,0 +1,22 @@
+{% extends "myApp/base.html" %}
+{% load static %}
+{% block mainBody %}
+
+<div class="container" >
+    <h1 style="color: red;">{{news.title}}</h1>
+    <div>{{news.post_time}}</div>
+    <div style="font-size: 20px;">{{news.text}}</div>
+        <div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="/news/{{previousPage.id}}/">上一頁</a></li>
+                    <li class="page-item"><a class="page-link" href="/news/{{nextPage.id}}/">下一頁</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock mainBody %}

@@ -1,0 +1,50 @@
+{% extends "myApp/base.html" %}
+{% load static %}
+{% block mainBody %}
+<!-- <div style="background-color: darkgrey";color:white;><topbar><h1>訂購人資訊</h1></topbar></div> -->
+<div style="color: crimson;">＊下方資訊皆必填</div>
+<div style="color: crimson; font-size: 20px;">{{error}}</div>
+<b>
+    <form action="" method="post" enctype="">
+        {% csrf_token %}
+        <fieldset>
+            <legend style="color: black;font-size: 30px;">訂購人資訊：</legend>
+            <div>
+                <label class="fontsize" for="input">姓氏：</label>
+                <input class="fontsize" type="text" name="firstname" placeholder="" required>
+            </div>
+            <br>
+            <div>
+                <label class="fontsize" for="input">稱呼：</label><br>
+                <select name="sex" class="form-select" style="width: 400px;">
+                <option class="fontsize">先生</option>
+                <option class="fontsize">小姐</option>
+            </div>
+            <br>
+            <div>
+                <label class="fontsize" for="input">信箱：</label>
+                <input class="fontsize" autocomplete="on" type="email" name="mail" placeholder="XXXXX@gmail.com" required>
+            </div>
+            <br>
+            <div>
+                <label class="fontsize" for="input">產品：</label>
+                <select name="producttype" class="form-select" style="width: 400px;">
+                <option class="fontsize">樹（棵）</option>
+                <option class="fontsize">果實（斤）</option>
+                <input style="font-size: 20px;width: 400px;" type="number" name="count" placeholder="數量" min=0 required>
+            </div> 
+            <br>     
+            <div>
+                <label class="fontsize" for="input">電話：</label>
+                <input class="fontsize" type="tel" name="tex" pattern="[0-9]{10}" placeholder="手機號碼10碼" required>
+            </div>
+            <br>
+            <div>
+                <label class="fontsize" for="input">備註：</label><br>
+                <textarea id="textarea" name="ps" rows="3" cols="37"></textarea>
+            </div>
+            <input class="fontsize" onclick="alert('請確認網頁紅字提示')" type="submit" value="送出">
+        </fieldset>
+    </form> 
+</b>
+{% endblock mainBody %}

@@ -1,0 +1,8 @@
+myvenv/*
+myproject/media
+myproject/myApp/statics
+myproject/staticfiles
+myproject/myApp/__pycache__/__init__.cpython-311.pyc
+myproject/myApp/migrations
+myproject/myproject/__pycache__/*.pyc
+myproject/myApp/__pycache__/*.pyc

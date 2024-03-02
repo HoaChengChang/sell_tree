@@ -1,0 +1,27 @@
+{% extends "myApp/base.html" %}
+{% load static %}
+{% block mainBody %}
+<div class="container" >
+  <table class="table" >
+    <thead>
+      <tr>
+        <th scope="col" style="width: 40%;">產品圖片</th>
+        <th scope="col">產品名稱</th>
+        <th scope="col">產品價格(NT)</th>
+        <th scope="col">描述</th>
+      </tr>
+    </thead>
+    {%for product in products%}
+    <tbody>
+      <tr>
+        <th scope="row"><img class="img-fluid" src="{{product.image.url}}" alt="{{product.name}}" width="250" height="250"></th>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.description}}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table> 
+</div>
+
+{% endblock mainBody %}
