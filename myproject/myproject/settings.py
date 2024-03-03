@@ -27,7 +27,7 @@ BASE_DIR =os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'django-insecure-tzdl$eqi&b$7-zi_-@f=vw)6-$3wtt&ehz#88i83w7_qps77r2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS =['127.0.0.1','site.howard7777.store']
 
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myApp',
-    # 'sslserver',
+    'sslserver',
 ]
 
 MIDDLEWARE = [
@@ -88,8 +88,8 @@ DATABASES = {
         'NAME': 'sale',
         'USER': 'root',
         'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '3306'
+        'HOST': 'db',
+        'PORT': '3307'
         #'CONN_MAX_AGE': 10,
     }
 }
