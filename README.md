@@ -4,8 +4,7 @@
 
 後端設計，分為最新消息、段落、產品、訂購資訊及訪問人數等五部分：
 <img width="˙720" alt="截圖 2024-04-21 下午1 33 23" src="https://github.com/HoaChengChang/sell_tree/assets/93926929/97f0c942-eab6-4e51-a433-4c2dad3fb2b0">
-最新消息
-<img width="720" alt="截圖 2024-04-21 下午1 33 38" src="https://github.com/HoaChengChang/sell_tree/assets/93926929/707d078c-635e-4dc6-9870-b839ea1363f6">
+最新消息<img width="720" alt="截圖 2024-04-21 下午1 33 38" src="https://github.com/HoaChengChang/sell_tree/assets/93926929/707d078c-635e-4dc6-9870-b839ea1363f6">
 
 段落
 <img width="720" alt="截圖 2024-04-21 下午1 34 07" src="https://github.com/HoaChengChang/sell_tree/assets/93926929/2263f007-f47a-461a-a763-6326d266257c">
